@@ -26,7 +26,7 @@
         </div>
         <button type="submit" class="py-3 bg-blue-500 text-white font-semibold rounded-md shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50">
             @php
-                $url = (session('userRole') === 'client') ? '/client-login' : '/admin-login'; //redirects the user to the appropriate login page
+                $url = (session('userRole') === 'customer') ? '/customer-login' : '/admin-login'; //redirects the user to the appropriate login page
             @endphp
             <a href="{{$url}}">Login Here</a>
         </button>
