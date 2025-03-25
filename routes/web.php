@@ -15,11 +15,17 @@ Route::get('/create-user', function () {
     ]);
 });
 Route::post('/register-user', [UserController::class, 'register']);
-Route::get('/login-user', [UserController::class, 'loginUser']);
+Route::post('/login-user', [UserController::class, 'loginUser']);
 
 
 // customer Authentication
 Route::get('/customer-login', function () {
     session(['userRole' => 'customer']);
+    return view('customer.login', ['userRole' => session('userRole')]);
+});
+
+// Admin Authentication
+Route::get('/admin-login', function () {
+    session(['userRole' => 'admin']);
     return view('customer.login', ['userRole' => session('userRole')]);
 });

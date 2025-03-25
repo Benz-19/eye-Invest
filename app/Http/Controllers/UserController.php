@@ -48,7 +48,7 @@ class UserController extends Controller
         $incomingRequest['email'] = htmlspecialchars($incomingRequest['email']);
         $incomingRequest['password'] = htmlspecialchars($incomingRequest['password']);
 
-        if (User::attempt(['email' => $incomingRequest['email'], 'password' => $incomingRequest['password']])) {
+        if (Auth::attempt(['email' => $incomingRequest['email'], 'password' => $incomingRequest['password']])) {
             if ($incomingRequest['role'] === 'customer') {
                 return view('customer.dashboard');
             } elseif ($incomingRequest['role'] === 'admin') {
