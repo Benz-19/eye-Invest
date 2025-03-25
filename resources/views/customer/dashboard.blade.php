@@ -16,7 +16,6 @@
 <body class="font-sans bg-gray-100">
 
   <div class="flex h-screen">
-
     <!-- Sidebar -->
     <aside class="w-64 bg-blue-800 text-white p-5">
       <h2 class="text-xl font-semibold">Eye-Invest Dashboard</h2>
@@ -31,9 +30,11 @@
 
     <!-- Main Content -->
     <main class="flex-1 p-6">
-    <div>
+    <div class="flex justify-between mb-5">
         <h1 class="text-3xl font-semibold mb-5">Welcome to Eye-Invest</h1>
-        <button></button>
+        <a href="{{url('/logout')}}">
+            <button class="bg-red-600 text-white py-2 px-6 rounded-lg hover:bg-blue-700">Logout</button>
+        </a>
     </div>
     <!-- Savings Progress -->
     <section class="bg-white p-5 rounded-lg shadow-lg">
@@ -95,7 +96,6 @@
         <p>Your spending habits indicate that you are saving sufficiently, but you could increase your savings by cutting back on unnecessary subscriptions.</p>
       </section>
     </main>
-
   </div>
 
   <script>

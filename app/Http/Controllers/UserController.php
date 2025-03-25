@@ -58,4 +58,25 @@ class UserController extends Controller
             }
         }
     }
+
+    public function logoutUser()
+    {
+        if (!Auth::check()) {
+            return redirect('/');
+        }
+
+        $userRole = session('userRole');
+        Auth::logout();
+        session()->flush();
+        session()->invalidate();
+        if ($userRole) {
+            return redirect("/{$userRole}-login")->withHeaders([
+                'Cache-Control' => 'no-store, no-cache, must-revalidate, max-age=0',
+                'Pragma' => 'no-cache',
+                'Expires' => 'Sat,  01 Jan 2000 00:00:00 GMT',
+            ]);
+        }
+
+        return redirect('/');
+    }
 }
