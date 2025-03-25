@@ -8,8 +8,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .circle {
-      /* transform: rotate(-90deg); */
-      transition: stroke-dasharray 9s ease-in-out; /* Slower animation (3 seconds) */
+      transition: stroke-dasharray 9s ease-in-out;
     }
   </style>
 </head>
