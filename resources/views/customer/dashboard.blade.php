@@ -36,6 +36,7 @@
             <button class="bg-red-600 text-white py-2 px-6 rounded-lg hover:bg-blue-700">Logout</button>
         </a>
     </div>
+    
     <!-- Savings Progress -->
     <section class="bg-white p-5 rounded-lg shadow-lg">
         <h2 class="text-xl font-semibold mb-3">Savings Progress</h2>
