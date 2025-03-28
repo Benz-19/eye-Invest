@@ -13,10 +13,11 @@
     #input-expense{
       display: none;
     }
+    
   </style>
 </head>
 
-<body class="font-sans bg-gray-100">
+<body class="font-sans bg-gray-100 bod">
 
   <div class="flex h-screen">
     <!-- Sidebar -->
@@ -56,38 +57,57 @@
         </section>
 
         <!-- Create a new Track -->
-        <section class="bg-white p-5 rounded-lg shadow-lg mb-6">
-          <h2 class="text-xl font-semibold mb-3">+ Insert new Expense(s)</h2>
-          <button class="bg-green-700 text-white py-2 px-6 rounded hover:bg-green-500" id="showInputExpense">Create +</button>
-          
-          <div class="bg-gray-100 flex flex-col justify-center p-5" id="input-expense">
-            <h1 class="text-center"><i>Give your Expense based on the <span class="text-red-600 font-bold">Period</span></i></h1>
-            <form action="" method="post" class="flex flex-col self-center rounded-lg shadow-lg w-fit p-7 bg-gray-100">
-              @csrf
-              <div class="flex">
-                <p class="mr-5 mt-7 font-bold">Period: </p>
-                <select name="" id="" class="w-fit border mt-7">
-                  <option value="">---------- Select a period ----------</option>
-                  <option value="monthly">Monthly</option>
-                  <option value="weekly">Weekly</option>
-                  <option value="daily">Daily</option>
-                </select>
-              </div>
+        <div>
+          <section class="bg-white p-5 rounded-lg shadow-lg mb-6">
+            <h2 class="text-xl font-semibold mb-3">+ Insert new Expense(s)</h2>
+            <button class="bg-green-700 text-white py-2 px-6 rounded hover:bg-green-500" id="showInputExpense">Create +</button>
+            
+            <!-- Overlay Background -->
+            <div id="expense-overlay" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden flex justify-center items-center">
+              <div class="bg-white p-7 rounded-lg shadow-lg w-96">
+                <h1 class="text-center mb-4">
+                  <i>Give your Expense based on the <span class="text-red-600 font-bold">Period</span></i>
+                </h1>
 
-              <div class="flex">
-                <p class="mr-5 mt-7 font-bold">Amount: </p>
-                <input type="number" class="border mt-7" placeholder="Amount" autocomplete="off">
-              </div>
-              <div class="flex">
-                <p class="mr-5 mt-7 font-bold">Location: </p>
-                <input type="text" class="border mt-7 text-center" placeholder="Where was this amount spent?" autocomplete="off">
-              </div>
-              <i class="text-gray-600">Note: can only specify a <span class="text-red-600">single</span> place</i>
-              <button type="button" name="submit" class="bg-green-700 text-white py-2 px-6 mt-5 rounded hover:bg-green-500">Submit</button>
-            </form>
+                <form action="" method="post" class="flex flex-col">
+                  @csrf
+                  <div class="mb-4">
+                    <label class="font-bold">Period:</label>
+                    <select class="w-full border p-2 mt-1">
+                      <option value="">---------- Select a period ----------</option>
+                      <option value="monthly">Monthly</option>
+                      <option value="weekly">Weekly</option>
+                      <option value="daily">Daily</option>
+                    </select>
+                  </div>
 
-          </div>
-        </section>
+                  <div class="mb-4">
+                    <label class="font-bold">Amount:</label>
+                    <input type="number" class="w-full border p-2 mt-1" placeholder="Amount" autocomplete="off">
+                  </div>
+
+                  <div class="mb-4">
+                    <label class="font-bold">Location:</label>
+                    <input type="text" class="w-full border p-2 mt-1 text-center" placeholder="Where was this amount spent?" autocomplete="off">
+                  </div>
+
+                  <i class="text-gray-600">Note: can only specify a <span class="text-red-600">single</span> place</i>
+
+                  <div class="flex justify-between">
+                    <!-- Close Button -->
+                    <button type="button" id="close-expense-form" class="mt-2 bg-red-500 text-white py-2 px-6 rounded hover:bg-red-700">
+                      Close
+                    </button>
+  
+                    <button type="submit" class="mt-2 bg-green-700 text-white p-5 px-6 rounded hover:bg-green-500">
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </section>
+        </div>
 
       <!-- Savings History -->
       <section class="bg-white p-5 rounded-lg shadow-lg mb-6">
@@ -155,15 +175,31 @@
     }, 2000);
 
 
-    const inputExpense = document.getElementById("input-expense");
-    const showInputExpense = document.getElementById("showInputExpense");
+      const expenseOverlay = document.getElementById("expense-overlay");
+      const showExpenseForm = document.getElementById("showInputExpense");
+      const closeExpenseForm = document.getElementById("close-expense-form");
 
-    if(showInputExpense){
-      showInputExpense.addEventListener('click', function(){
-        inputExpense.style.display = 'flex';
-        console.log("yes....");
-      });
-    }
+    // Show the form overlay when clicking "Create +"
+    showExpenseForm.addEventListener("click", function () {
+      expenseOverlay.classList.remove("hidden");
+      document.body.classList.add("overflow-hidden"); // Prevent scrolling
+    });
+
+    // Hide the form overlay when clicking "Close"
+    closeExpenseForm.addEventListener("click", function () {
+      expenseOverlay.classList.add("hidden");
+      document.body.classList.remove("overflow-hidden");
+    });
+
+    // Hide overlay if user clicks outside the form
+    expenseOverlay.addEventListener("click", function (event) {
+      if (event.target === expenseOverlay) {
+        expenseOverlay.classList.add("hidden");
+        document.body.classList.remove("overflow-hidden");
+      }
+    });
+
+    
   </script>
 </body>
 
