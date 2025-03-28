@@ -10,6 +10,9 @@
     .circle {
       transition: stroke-dasharray 9s ease-in-out;
     }
+    #input-expense{
+      display: none;
+    }
   </style>
 </head>
 
@@ -50,6 +53,40 @@
         </div>
 
         <p class="mt-3 text-center" id="progressText"></p>
+        </section>
+
+        <!-- Create a new Track -->
+        <section class="bg-white p-5 rounded-lg shadow-lg mb-6">
+          <h2 class="text-xl font-semibold mb-3">+ Insert new Expense(s)</h2>
+          <button class="bg-green-700 text-white py-2 px-6 rounded hover:bg-green-500" id="showInputExpense">Create +</button>
+          
+          <div class="bg-gray-100 flex flex-col justify-center p-5" id="input-expense">
+            <h1 class="text-center"><i>Give your Expense based on the <span class="text-red-600 font-bold">Period</span></i></h1>
+            <form action="" method="post" class="flex flex-col self-center rounded-lg shadow-lg w-fit p-7 bg-gray-100">
+              @csrf
+              <div class="flex">
+                <p class="mr-5 mt-7 font-bold">Period: </p>
+                <select name="" id="" class="w-fit border mt-7">
+                  <option value="">---------- Select a period ----------</option>
+                  <option value="monthly">Monthly</option>
+                  <option value="weekly">Weekly</option>
+                  <option value="daily">Daily</option>
+                </select>
+              </div>
+
+              <div class="flex">
+                <p class="mr-5 mt-7 font-bold">Amount: </p>
+                <input type="number" class="border mt-7" placeholder="Amount" autocomplete="off">
+              </div>
+              <div class="flex">
+                <p class="mr-5 mt-7 font-bold">Location: </p>
+                <input type="text" class="border mt-7 text-center" placeholder="Where was this amount spent?" autocomplete="off">
+              </div>
+              <i class="text-gray-600">Note: can only specify a <span class="text-red-600">single</span> place</i>
+              <button type="button" name="submit" class="bg-green-700 text-white py-2 px-6 mt-5 rounded hover:bg-green-500">Submit</button>
+            </form>
+
+          </div>
         </section>
 
       <!-- Savings History -->
@@ -116,6 +153,17 @@
       circle.style.strokeDashoffset = offset;
       document.getElementById('progressText').innerText = `${percentage}% towards your savings goal for the month!`;
     }, 2000);
+
+
+    const inputExpense = document.getElementById("input-expense");
+    const showInputExpense = document.getElementById("showInputExpense");
+
+    if(showInputExpense){
+      showInputExpense.addEventListener('click', function(){
+        inputExpense.style.display = 'flex';
+        console.log("yes....");
+      });
+    }
   </script>
 </body>
 
