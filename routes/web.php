@@ -30,3 +30,7 @@ Route::get('/admin-login', function () {
     session(['userRole' => 'admin']);
     return view('customer.login', ['userRole' => session('userRole')]);
 });
+
+Route::get('/admin/dashboard', function () {
+    return view('admin.dashboard');
+});
