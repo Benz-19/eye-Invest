@@ -69,7 +69,7 @@
                   <i>Give your Expense based on the <span class="text-red-600 font-bold">Period</span></i>
                 </h1>
 
-                <form action="" method="post" class="flex flex-col">
+                <form action="/createExpense" method="post" class="flex flex-col">
                   @csrf
                   <div class="mb-4">
                     <label class="font-bold">Period:</label>
