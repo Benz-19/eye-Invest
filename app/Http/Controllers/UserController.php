@@ -50,7 +50,7 @@ class UserController extends Controller
 
         if (Auth::attempt(['email' => $incomingRequest['email'], 'password' => $incomingRequest['password']])) {
             if ($incomingRequest['role'] === 'customer') {
-                return view('customer.dashboard');
+                return redirect('/customer/dashboard');
             } elseif ($incomingRequest['role'] === 'admin') {
                 return view('admin.dashboard');
             } else {

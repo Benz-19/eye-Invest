@@ -19,6 +19,18 @@
 
 <body class="font-sans bg-gray-100 bod">
 
+  @if (session('success'))
+      <div class="bg-green h-fit w-fit text-white-400">
+        {{session('success')}}
+      </div>
+  @endif
+
+  @if (session('error'))
+  <div class="bg-red h-fit w-fit text-white-400">
+    {{session('error')}}
+      </div>
+  @endif
+
   <div class="flex h-screen">
     <!-- Sidebar -->
     <aside class="w-64 bg-blue-800 text-white p-5">
@@ -59,7 +71,7 @@
         <!-- Create a new Track -->
         <div>
           <section class="bg-white p-5 rounded-lg shadow-lg mb-6 flex flex-col items-center">
-            <h2 class="text-xl font-bold">Current Salary: <span>$5534.22</span></h2>
+            <h2 class="text-xl font-bold">Current Salary: <span>${{$salary}}</span></h2>
             <button class="bg-blue-700 text-white py-2 px-6 hover:bg-blue-500">Update Salary</button>
           </section>
           <section class="bg-white p-5 rounded-lg shadow-lg mb-6">

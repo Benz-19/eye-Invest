@@ -1,8 +1,11 @@
 <?php
 
+use App\Models\Salary;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\InvestController;
+use App\Http\Controllers\SalaryController;
 
 Route::get('/', function () {
     return view('landing');
@@ -26,6 +29,16 @@ Route::get('/customer-login', function () {
     return view('customer.login', ['userRole' => session('userRole')]);
 });
 
+Route::get('/customer/dashboard', function () {
+    if (!Auth::check()) {
+        return redirect('/');
+    }
+    $userSalary = new SalaryController();
+    return view('customer.dashboard', [
+        'salary' => $userSalary->getSalary(),
+        'userRole' => session('userRole')
+    ]);
+});
 Route::post('/createExpense', [InvestController::class, 'processExpense']);
 
 
