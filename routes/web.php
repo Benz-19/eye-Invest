@@ -25,6 +25,9 @@ Route::get('/customer-login', function () {
     return view('customer.login', ['userRole' => session('userRole')]);
 });
 
+Route::post('/createExpense', []);
+
+
 // Admin Authentication
 Route::get('/admin-login', function () {
     session(['userRole' => 'admin']);
