@@ -91,7 +91,7 @@
                   </div>
 
                   <div class="mb-4">
-                    <label class="font-bold">Location:</label>
+                    <label class="font-bold">Vendor Name:</label>
                     <input type="text" class="w-full border p-2 mt-1 text-center" placeholder="Where was this amount spent?" autocomplete="off">
                   </div>
 

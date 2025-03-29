@@ -11,6 +11,7 @@ class Invest extends Model
         'salary',
         'amount',
         'period',
+        'vendor',
         'date',
     ];
 }
