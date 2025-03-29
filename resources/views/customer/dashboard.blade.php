@@ -58,6 +58,10 @@
 
         <!-- Create a new Track -->
         <div>
+          <section class="bg-white p-5 rounded-lg shadow-lg mb-6 flex flex-col items-center">
+            <h2 class="text-xl font-bold">Current Salary: <span>$5534.22</span></h2>
+            <button class="bg-blue-700 text-white py-2 px-6 hover:bg-blue-500">Update Salary</button>
+          </section>
           <section class="bg-white p-5 rounded-lg shadow-lg mb-6">
             <h2 class="text-xl font-semibold mb-3">+ Insert new Expense(s)</h2>
             <button class="bg-green-700 text-white py-2 px-6 rounded hover:bg-green-500" id="showInputExpense">Create +</button>
