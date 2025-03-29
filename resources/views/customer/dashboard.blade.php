@@ -77,7 +77,7 @@
                   @csrf
                   <div class="mb-4">
                     <label class="font-bold">Period:</label>
-                    <select class="w-full border p-2 mt-1">
+                    <select name="period" class="w-full border p-2 mt-1">
                       <option value="">---------- Select a period ----------</option>
                       <option value="monthly">Monthly</option>
                       <option value="weekly">Weekly</option>
@@ -87,12 +87,12 @@
 
                   <div class="mb-4">
                     <label class="font-bold">Amount:</label>
-                    <input type="number" class="w-full border p-2 mt-1" placeholder="Amount" autocomplete="off">
+                    <input type="number" name="amount" class="w-full border p-2 mt-1" placeholder="Amount" autocomplete="off">
                   </div>
 
                   <div class="mb-4">
                     <label class="font-bold">Vendor Name:</label>
-                    <input type="text" class="w-full border p-2 mt-1 text-center" placeholder="Where was this amount spent?" autocomplete="off">
+                    <input type="text" name="vendor" class="w-full border p-2 mt-1 text-center" placeholder="Where was this amount spent?" autocomplete="off">
                   </div>
 
                   <i class="text-gray-600">Note: can only specify a <span class="text-red-600">single</span> place</i>

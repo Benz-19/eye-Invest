@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\InvestController;
 
 Route::get('/', function () {
     return view('landing');
@@ -25,7 +26,7 @@ Route::get('/customer-login', function () {
     return view('customer.login', ['userRole' => session('userRole')]);
 });
 
-Route::post('/createExpense', []);
+Route::post('/createExpense', [InvestController::class, 'processExpense']);
 
 
 // Admin Authentication
