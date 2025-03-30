@@ -32,6 +32,7 @@
             {{-- <p class="font-bold">Admin: {{$adminName}}</p>
             <p class="font-bold">Id: {{$adminId}}</p> --}}
          </div>
+         
           <nav class="space-y-4">
                 <a href="/admin/dashboard">
                     <button class="flex items-center gap-3 p-2 rounded hover:bg-gray-700 w-full">
