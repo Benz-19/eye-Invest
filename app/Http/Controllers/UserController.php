@@ -76,7 +76,6 @@ class UserController extends Controller
                 'Expires' => 'Sat,  01 Jan 2000 00:00:00 GMT',
             ]);
         }
-
         return redirect('/');
     }
 }
