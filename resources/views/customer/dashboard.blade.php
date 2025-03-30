@@ -12,7 +12,8 @@
     }
     #input-expense{
       display: none;
-    } 
+    }
+ 
   </style>
 </head>
 
