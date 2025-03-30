@@ -33,7 +33,6 @@ Route::get('/customer/dashboard', function () {
     if (!Auth::check()) {
         return redirect('/');
     }
-
     $userSalary = new SalaryController();
     return view('customer.dashboard', [
         'salary' => $userSalary->getSalary(),
