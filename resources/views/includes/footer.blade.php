@@ -12,6 +12,7 @@
             <div class="w-full sm:w-auto mb-4 sm:mb-0">
                 <img class="logo opacity-100" src="{{ asset('images/logo.png') }}" alt="">
             </div>
+            
             <div class="w-full sm:w-auto mb-4 sm:mb-0">
                 <a href="#" class="text-gray-400 hover:text-white px-4">Privacy Policy</a>
                 <a href="#" class="text-gray-400 hover:text-white px-4">Terms of Service</a>
