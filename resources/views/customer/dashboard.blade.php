@@ -174,7 +174,6 @@
   <script>
     // Percentage to animate
     const percentage = 75; // Change this value to reflect actual progress
-
     const circle = document.getElementById('progressCircle');
     const radius = circle.r.baseVal.value;
     const circumference = 2 * Math.PI * radius;
