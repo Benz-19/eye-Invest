@@ -32,4 +32,5 @@
             echo "<p> &copy; $year u-bank-team. All rights reserved.</p>";
         @endphp
     </div>
+    
 </footer>
