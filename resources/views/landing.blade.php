@@ -65,6 +65,7 @@
     <!-- Footer -->
     @include('includes.footer')
 
+
     <!-- JavaScript for Mobile Menu Toggle -->
     <script>
         document.getElementById('menu-toggle').addEventListener('click', function () {
