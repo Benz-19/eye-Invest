@@ -5,6 +5,7 @@
                 <img class="w-12 h-10" src="{{ asset('images/logo.png') }}" alt="Logo">
             </a>
         </div>
+
         <div class="flex lg:hidden">
             <button type="button" id="menu-toggle" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
                 <span class="sr-only">Open main menu</span>
